@@ -1,0 +1,220 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    padding: 15px;
+}
+.dashboard-card {
+    border: none;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+.dashboard-card h5 {
+    color: gray;
+}
+.dashboard-card h3 {
+    font-weight: bold;
+}
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.menu-button {
+    width: 100%;
+    min-height: 150px;
+
+    background-color: white;
+
+    border: none;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+.menu-button:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+.menu-button span {
+    font-size: 40px;
+}
+.menu-button strong {
+    font-size: 20px;
+}
+.menu-button small {
+    color: gray;
+}
+.menu-button {
+    position: relative;
+    cursor: pointer;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: #f8fbff;
+}
+
+.menu-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.menu-button::after {
+    content: "→";
+    display: block;
+    width: 120px;
+    margin: 15px auto 0;
+    padding: 7px;
+    border-radius: 6px;
+   background: #bfdbfe;
+    color: #0d6efd;
+    font-size: 22px;
+    font-weight: bold;
+}
+.menu-button:nth-child(1)::after {
+    background: #bfdbfe;
+    color: #0d6efd;
+}
+
+.menu-button:nth-child(2)::after {
+    background: #ffedd5;
+    color: #f97316;
+}
+
+.menu-button:nth-child(3)::after {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.menu-button:nth-child(4)::after {
+    background: #fce7f3;
+    color: #ec4899;
+}
+
+.menu-button:nth-child(5)::after {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.menu-button:nth-child(6)::after {
+    background: #dbeafe;
+    color: #2563eb;
+}
+.menu-button:hover::after {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+.row.g-4.mt-3 > .col-md-4:nth-child(1) .menu-button {
+    background: #eff6ff;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(2) .menu-button {
+    background: #fff7ed;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(3) .menu-button {
+    background: #f5f3ff;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(4) .menu-button {
+    background: #fdf2f8;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(5) .menu-button {
+    background: #ecfdf5;
+}
+.menu-button .icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+    background: #e0f2fe;
+}
+.row.g-4.mt-3 > .col-md-4:nth-child(1) .icon {
+    background: #dbeafe;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(2) .icon {
+    background: #ffedd5;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(3) .icon {
+    background: #ede9fe;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(4) .icon {
+    background: #fce7f3;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(5) .icon {
+    background: #d1fae5;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(6) .icon {
+    background: #dbeafe;
+}
+.row.g-4.mt-3 > .col-md-4:nth-child(1) .menu-button::after {
+    background: #bfdbfe;
+    color: #2563eb;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(2) .menu-button::after {
+    background: #fed7aa;
+    color: #f97316;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(3) .menu-button::after {
+    background: #ddd6fe;
+    color: #7c3aed;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(4) .menu-button::after {
+    background: #fbcfe8;
+    color: #ec4899;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(5) .menu-button::after {
+    background: #a7f3d0;
+    color: #10b981;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(6) .menu-button::after {
+    background: #bfdbfe;
+    color: #2563eb;
+}
+.menu-button, .dashboard-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    vertical-align: top; 
+}
