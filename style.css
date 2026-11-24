@@ -143,7 +143,7 @@ body {
 }
 
 .row.g-4.mt-3 > .col-md-4:nth-child(5) .menu-button {
-    background: #ecfdf5;
+    background: #f3e8ff;
 }
 .menu-button .icon {
     width: 80px;
@@ -175,7 +175,7 @@ body {
 }
 
 .row.g-4.mt-3 > .col-md-4:nth-child(5) .icon {
-    background: #d1fae5;
+    background: #d8b4fe;
 }
 
 .row.g-4.mt-3 > .col-md-4:nth-child(6) .icon {
@@ -210,6 +210,8 @@ body {
     background: #bfdbfe;
     color: #2563eb;
 }
+
+
 .menu-button, .dashboard-card {
     display: flex;
     flex-direction: column;
@@ -217,4 +219,67 @@ body {
     justify-content: space-between;
     height: 100%;
     vertical-align: top; 
+}
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode .card {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background-color: black;
+}
+
+body.dark-mode .table {
+    color: white;
+}
+body.dark-mode .offcanvas {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode .offcanvas-title {
+    color: white;
+}
+
+body.dark-mode .offcanvas .btn-close {
+    filter: invert(1);
+}
+footer{
+    background-color:lightblue;
+    text-align:center;
+    padding-top: 20px;
+}
+.row.g-4.mt-3 > .col-md-4:nth-child(7) .menu-button {
+    background: #f0fdf4;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(7) .icon {
+    background: #dcfce7;
+}
+
+.row.g-4.mt-3 > .col-md-4:nth-child(7) .menu-button::after {
+    background: #bbf7d0;
+    color: #16a34a;
+}
+.chart-card::after {
+    display: none !important;
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #receiptContent, #receiptContent * {
+        visibility: visible;
+    }
+    #receiptContent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
 }

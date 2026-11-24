@@ -3,169 +3,120 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>برنامج إدارة المحل</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlE04Mu0oKCclKH9rqaC7-zqIwyoWmIWOOoTzQ0mXqhw&s=10">
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-
             <span class="navbar-brand mb-0 h1">
                 🏪 برنامج إدارة المحل
             </span>
-
-            <span class="text-white">
+            <button onclick="toggleDarkMode()" class="btn btn-dark ms-2">
+                🌙 Dark Mode
+            </button>
+            <button class="btn btn-primary ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#myOffcanvas">
+                ☰ القائمة
+            </button>
+            <button onclick="logout()" class="btn btn-danger ms-2">
+                🚪 خروج
+            </button>
+            <span class="text-white ms-auto">
                 الرئيسية
             </span>
-
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
 
-        <h2 class="text-center mb-4">
-            لوحة التحكم
-        </h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>لوحة التحكم</h2>
+            <button class="btn btn-danger" onclick="resetDashboardData()">
+                🗑️ تصفير جميع البيانات
+            </button>
+        </div>
 
         <div class="row g-4">
             <div class="col-md-3">
-
                 <div class="card dashboard-card">
-
                     <div class="card-body text-center">
-
-                        <div class="icon">
-                            🛒
-                        </div>
-
-                        <h5>
-                            مبيعات اليوم
-                        </h5>
-
-                        <h3 id="todaySales">
-                            0 ج.م
-                        </h3>
-
+                        <div class="icon">🛒</div>
+                        <h5>مبيعات اليوم</h5>
+                        <h3 id="todaySales">0 ج.م</h3>
                     </div>
-
                 </div>
-
             </div>
+
             <div class="col-md-3">
-
                 <div class="card dashboard-card">
-
                     <div class="card-body text-center">
-
-                        <div class="icon">
-                            💸
-                        </div>
-
-                        <h5>
-                            المصروفات
-                        </h5>
-
-                        <h3 id="dashboardExpenses">
-                            0 ج.م
-                        </h3>
+                        <div class="icon">💸</div>
+                        <h5>المصروفات</h5>
+                        <h3 id="dashboardExpenses">0 ج.م</h3>
                     </div>
-
                 </div>
-
             </div>
+
             <div class="col-md-3">
-
                 <div class="card dashboard-card">
-
                     <div class="card-body text-center">
-
-                        <div class="icon">
-                            💰
-                        </div>
-
-                        <h5>
-                            صافي الربح
-                        </h5>
-
-                        <h3 id="dashboardProfit">
-                            0 ج.م
-                        </h3>
-
+                        <div class="icon">💰</div>
+                        <h5>صافي الربح</h5>
+                        <h3 id="dashboardProfit">0 ج.م</h3>
                     </div>
-
                 </div>
-
             </div>
+
             <div class="col-md-3">
-
                 <div class="card dashboard-card">
-
                     <div class="card-body text-center">
-
-                        <div class="icon">
-                            📦
-                        </div>
-
-                        <h5>
-                            عدد المنتجات
-                        </h5>
-
-                        <h3 id="dashboardProducts">
-                            0
-                        </h3>
-
+                        <div class="icon">📦</div>
+                        <h5>عدد المنتجات</h5>
+                        <h3 id="dashboardProducts">0</h3>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="row g-4 mt-3 align-items-stretch">
 
-            <div class="col-md-4">
-
-                <a href="products.html" class="menu-button text-decoration-none text-dark">
-
-                    <div class="icon">
-                        📦
+            <div class="col-md-12 col-lg-4">
+                <div class="menu-button chart-card text-dark position-relative h-100">
+                    <div class="d-flex justify-content-between align-items-center w-100 mb-2 px-2">
+                        <strong>📈 الإحصائيات</strong>
+<button id="zoomBtn" class="btn btn-primary">
+    🔍 تكبير
+</button>
                     </div>
+                    <small class="mb-2">مقارنة المبيعات بالمصروفات</small>
 
-                    <strong>
-                        المنتجات
-                    </strong>
+                    <div class="chart-container" style="position: relative; height: 180px; width: 100%;">
+                        <canvas id="salesExpensesChart"></canvas>
+                    </div>
+                </div>
+            </div>
 
-                    <small>
-                        إضافة وتعديل المنتجات
-                    </small>
-
+            <div class="col-md-4">
+                <a href="products.html" class="menu-button text-decoration-none text-dark">
+                    <div class="icon">📦</div>
+                    <strong>المنتجات</strong>
+                    <small>إضافة وتعديل المنتجات</small>
                 </a>
             </div>
 
             <div class="col-md-4">
                 <a href="sales.html" class="menu-button text-decoration-none text-dark">
-
-                    <div class="icon">
-                        🛒
-                    </div>
-
-                    <strong>
-                        المبيعات
-                    </strong>
-
-                    <small>
-                        تسجيل عمليات البيع
-                    </small>
-
+                    <div class="icon">🛒</div>
+                    <strong>المبيعات</strong>
+                    <small>تسجيل عمليات البيع</small>
                 </a>
-
             </div>
+
             <div class="col-md-4">
                 <a href="stock.html" class="menu-button text-decoration-none text-dark d-block">
                     <div class="icon">📊</div>
@@ -176,25 +127,15 @@
                     </div>
                 </a>
             </div>
+
             <div class="col-md-4">
-
                 <a href="expenses.html" class="menu-button text-decoration-none text-dark">
-
-                    <div class="icon">
-                        💸
-                    </div>
-
-                    <strong>
-                        المصروفات
-                    </strong>
-
-                    <small>
-                        تسجيل المصروفات
-                    </small>
-
+                    <div class="icon">💸</div>
+                    <strong>المصروفات</strong>
+                    <small>تسجيل المصروفات</small>
                 </a>
-
             </div>
+
             <div class="col-md-4">
                 <a href="customers.html"
                     class="menu-button text-decoration-none text-dark h-100 d-flex flex-column justify-content-between p-3 text-center">
@@ -203,23 +144,14 @@
                         <strong class="d-block mb-1">العملاء</strong>
                         <small class="text-muted d-block">إدارة العملاء</small>
                     </div>
-
                 </a>
             </div>
+
             <div class="col-md-4">
-
                 <a href="reports.html" class="menu-button text-decoration-none text-dark">
-                    <div class="icon">
-                        📊
-                    </div>
-
-                    <strong>
-                        التقارير
-                    </strong>
-
-                    <small>
-                        عرض التقارير والإحصائيات
-                    </small>
+                    <div class="icon">📊</div>
+                    <strong>التقارير</strong>
+                    <small>عرض التقارير والإحصائيات</small>
                 </a>
             </div>
 
@@ -227,8 +159,53 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chartModalLabel">📈 الإحصائيات المتقدمة (مكبرة)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="position: relative; height: 450px; width: 100%;">
+                        <canvas id="largeSalesExpensesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="myOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">🏪 قائمة البرنامج</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="index.html" class="btn btn-outline-primary w-100 mb-2">🏠 الرئيسية</a>
+            <a href="products.html" class="btn btn-outline-primary w-100 mb-2">📦 المنتجات</a>
+            <a href="sales.html" class="btn btn-outline-primary w-100 mb-2">🛒 المبيعات</a>
+            <a href="customers.html" class="btn btn-outline-primary w-100 mb-2">👥 العملاء</a>
+            <a href="expenses.html" class="btn btn-outline-primary w-100 mb-2">💰 المصروفات</a>
+            <a href="reports.html" class="btn btn-outline-primary w-100 mb-2">📊 التقارير</a>
+            <button onclick="logout()" class="btn btn-danger w-100 mb-2">🚪 تسجيل الخروج</button>
+        </div>
+    </div>
+
+    <footer class="text-center py-4">
+        <p>Powered by <strong>Eng. Salma Mohsen</strong></p>
+        <a href="https://www.linkedin.com/in/salma-mohsen-9858a9385/" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ZBsDfvQ2isYjlPw4O0rDUM4FLIylJaS3WQ04z3ya_g&s=10"
+                alt="LinkedIn" width="45" height="45" class="rounded-circle me-2">
+        </a>
+        <a href="mailto:salma.mohsen.ra@gmail.com">
+            <img src="data:image/png;base64,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"
+                alt="Gmail" width="30" height="30" class="rounded-circle">
+        </a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
